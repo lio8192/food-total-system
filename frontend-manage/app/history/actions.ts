@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function cancelPurchase(id: number) {
   try {

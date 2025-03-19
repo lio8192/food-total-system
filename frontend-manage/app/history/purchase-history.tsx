@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Button } from "@/components/ui/button"
 import { cancelPurchase } from './actions'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 interface Purchase {
   id: number
