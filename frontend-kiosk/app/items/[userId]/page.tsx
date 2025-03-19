@@ -96,7 +96,7 @@ export default function ItemSelection({ params }: { params: { userId: string } }
       const results = await Promise.all(orderPromises)
       
       // 응답 확인
-      const hasError = results.some(res => !res.ok)
+      const hasError = results.some(res => res && !res.ok)
       if (hasError) {
         throw new Error('주문 처리 중 오류가 발생했습니다.')
       }
