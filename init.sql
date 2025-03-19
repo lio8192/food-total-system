@@ -1,0 +1,32 @@
+CREATE DATABASE IF NOT EXISTS labfood;
+USE labfood;
+
+-- users 테이블
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+-- items 테이블
+CREATE TABLE items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    item VARCHAR(100) NOT NULL,
+    price VARCHAR(100) NOT NULL,
+    img VARCHAR(100) NOT NULL,
+    person INT NOT NULL,
+    deletedAt TIMESTAMP NULL DEFAULT NULL,
+    FOREIGN KEY (person) REFERENCES users(id)
+);
+
+-- calculate 테이블
+CREATE TABLE calculate (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    person VARCHAR(100) NOT NULL,
+    item INT NOT NULL,
+    count INT NOT NULL,
+    createAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    calculateAt TIMESTAMP NULL DEFAULT NULL,
+    price INT NOT NULL,
+    deletedAt TIMESTAMP NULL DEFAULT NULL,
+    FOREIGN KEY (item) REFERENCES items(id)
+);
